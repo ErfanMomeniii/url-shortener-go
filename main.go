@@ -8,6 +8,9 @@ func hello(c echo.Context) error {
 }
 	
 func main() {
+	db := ConnectToDb();
+	HandleMigration(db);
+
 	app := echo.New();
 	app.GET("/", hello);
 	app.Start(":1222");
