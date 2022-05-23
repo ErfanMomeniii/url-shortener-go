@@ -1,17 +1,13 @@
 package main;
 import (
-	"net/http"
-	"github.com/labstack/echo/v4"
+	"github.com/ErfanMomeniii/urlshortener-go/db"
+	"github.com/ErfanMomeniii/urlshortener-go/router"
 )
-func hello(c echo.Context) error {
-	return c.JSON(http.StatusOK, "hello");
-}
 	
 func main() {
-	db := ConnectToDb();
-	HandleMigration(db);
+	d := db.ConnectToDb();
+	db.HandleMigration(d);
 
-	app := echo.New();
-	app.GET("/", hello);
-	app.Start(":1222");
+	r := router.New();
+
 }

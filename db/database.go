@@ -1,14 +1,15 @@
-package main
+package db;
 
 import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"github.com/ErfanMomeniii/urlshortener-go/model"
+	"github.com/ErfanMomeniii/urlshortener-go/config"
 	"errors"
 )
 
 func ConnectToDb() *gorm.DB {
-	db, err := gorm.Open(mysql.Open(DSN), &gorm.Config{});
+	db, err := gorm.Open(mysql.Open(config.DSN), &gorm.Config{});
 	if err!=nil {
 		panic(err);
 	}
