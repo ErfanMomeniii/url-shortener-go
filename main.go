@@ -8,6 +8,7 @@ func main() {
 	d := db.ConnectToDb();
 	db.HandleMigration(d);
 
-	r := router.New();
+	r:=router.New();
+	router.RegisterRoutes(r,d);
 
 }
